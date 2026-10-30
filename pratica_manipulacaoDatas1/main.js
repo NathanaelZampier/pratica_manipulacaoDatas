@@ -91,7 +91,7 @@
 
 // console.log(data);
 
-const agora = new Date();
+// const agora = new Date();
 
 // console.log(agora)
 
@@ -117,78 +117,213 @@ const agora = new Date();
 
 // console.log(`${diaMes} / ${mes} / ${ano}`)
 
-let segundos = agora.getSeconds()
+// let segundos = agora.getSeconds()
 
-if (segundos < 10) {
-    segundos = `0${segundos}`;
-}
+// if (segundos < 10) {
+//     segundos = `0${segundos}`;
+// }
 
-let minutos = agora.getMinutes()
+// let minutos = agora.getMinutes()
 
-if (minutos < 10) {
-    minutos = `0${minutos}`;
-}
+// if (minutos < 10) {
+//     minutos = `0${minutos}`;
+// }
 
-const hora = agora.getHours()
+// const hora = agora.getHours()
 
-const ano = agora.getFullYear();
+// const ano = agora.getFullYear();
 
-console.log(ano)
+// console.log(ano)
 
-let mes = agora.getMonth() + 1
+// let mes = agora.getMonth() + 1
 
-mes = mes < 10 ? `0${mes}` : `${mes}`
+// mes = mes < 10 ? `0${mes}` : `${mes}`
 
-console.log(mes)
+// console.log(mes)
 
-let diaMes = agora.getDate()
+// let diaMes = agora.getDate()
 
-if (diaMes < 10) {
-    diaMes = `0${diaMes}`
-}
+// if (diaMes < 10) {
+//     diaMes = `0${diaMes}`
+// }
 
+// const diaSemana = agora.getDay()
+
+// console.log(diaSemana)
+
+// let nomeDiaSemana
+
+// switch (diaSemana) {
+//     case 0:
+//         nomeDiaSemana = `hoje é domingo`
+
+//         break;
+
+//     case 1: 
+//         nomeDiaSemana = `hoje é segunda`
+//         break;
+
+//     case 2: 
+//         nomeDiaSemana = `hoje é terça`
+//         break;
+
+//     case 3: 
+//         nomeDiaSemana = `hoje é quarta`
+//         break;
+
+//     case 4: 
+//         nomeDiaSemana = `hoje é quinta`
+//         break
+
+//     case 5: 
+//         nomeDiaSemana = `hoje é sexta`
+//         break
+
+//     case 6: 
+//         nomeDiaSemana = `hoje é sabado`
+//         break
+
+//     default: 
+//     console.log('dia inválido')
+// }
+
+
+
+// console.log(nomeDiaSemana)
+// console.log(`Data: ${diaMes} / ${mes} / ${ano}`)
+// console.log(`Horário: ${hora} : ${minutos} : ${segundos}`)
+
+
+// function obterDiaSemana(numero) {
+//         switch(numero) {
+//         case 0: 
+//         return `domingo`;
+
+//         case 1:
+//         return `segunda-feira`;
+
+//         case 2:
+//         return `terca-feira`;
+
+//         case 3:
+//         return `quarta-feira`;
+
+//         case 4: 
+//         return `quinta-feira`;
+
+//         case 5:
+//         return `sexta-feira`;
+
+//         case 6:
+//         return `sabado`;
+
+//         default: 
+//         console.log('dia inválido')
+//     }
+// }
+
+// const dia = obterDiaSemana(5)
+
+// console.log(dia)
+
+
+const agora = new Date()
+
+const ano = agora.getFullYear()
+const mes = agora.getMonth() + 1
+const dia = agora.getDate()
 const diaSemana = agora.getDay()
 
-console.log(diaSemana)
 
-let nomeDiaSemana
 
-switch (diaSemana) {
-    case 0:
-        nomeDiaSemana = `hoje é domingo`
+function obterNomeDia(numero) {
+    switch(numero) {
+        case 0 : 
+        return 'domingo';
 
-        break;
+        case 1 : 
+        return 'segunda-feira';
 
-    case 1: 
-        nomeDiaSemana = `hoje é segunda`
-        break;
+        case 2: 
+        return 'terça-feira';
 
-    case 2: 
-        nomeDiaSemana = `hoje é terça`
-        break;
+        case 3:
+        return 'quarta-feira';
 
-    case 3: 
-        nomeDiaSemana = `hoje é quarta`
-        break;
+        case 4: 
+        return 'quinta-feira';
 
-    case 4: 
-        nomeDiaSemana = `hoje é quinta`
-        break
+        case 5:
+        return 'sexta-feira';
 
-    case 5: 
-        nomeDiaSemana = `hoje é sexta`
-        break
+        case 6 :
+        return 'sabado';
 
-    case 6: 
-        nomeDiaSemana = `hoje é sabado`
-        break
+        default:
+        return 'dia inválido'
+    }
 
-    default: 
-    console.log('dia inválido')
+}
+
+let mesFormatado
+
+if (mes < 10) {
+    mesFormatado = `0${mes}`
+} else {
+    mesFormatado = `${mes}`
+}
+
+let diaFormatado
+
+if (dia < 10) {
+    diaFormatado = `0${dia}`
+} else {
+    diaFormatado = `${dia}`
+}
+
+console.log(`${obterNomeDia(diaSemana)} ${diaFormatado} / ${mesFormatado} / ${ano}`)
+
+
+
+const dataFutura = new Date()
+
+
+
+dataFutura.setDate(dataFutura.getDate() + 10)
+
+
+const dataFuturaDia = dataFutura.getDate()
+const dataFuturaMes = dataFutura.getMonth() + 1
+const dataFuturaAno = dataFutura.getFullYear()
+const diaSemanaFutura = dataFutura.getDay()
+
+console.log(dataFutura)
+
+console.log(obterNomeDia(diaSemanaFutura))
+
+let mesFormatadoFuturo
+
+if (dataFuturaMes < 10) {
+    mesFormatadoFuturo = `0${dataFuturaMes}`
+} else {
+    mesFormatadoFuturo = `${dataFuturaMes}`
+}
+
+let diaFormatadoFuturo
+
+if (dataFuturaDia < 10) {
+    diaFormatadoFuturo = `0${dataFuturaDia}`
+} else {
+    diaFormatadoFuturo = `${dataFuturaDia}`
 }
 
 
+console.log(`${obterNomeDia(diaSemanaFutura)} ${diaFormatadoFuturo} / ${mesFormatadoFuturo} / ${dataFuturaAno}`)
 
-console.log(nomeDiaSemana)
-console.log(`Data: ${diaMes} / ${mes} / ${ano}`)
-console.log(`Horário: ${hora} : ${minutos} : ${segundos}`)
+
+
+
+
+
+
+
